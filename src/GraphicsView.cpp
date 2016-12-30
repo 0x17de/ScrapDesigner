@@ -46,6 +46,4 @@ void GraphicsView::resizeEvent(QResizeEvent* event) {
     } else {
         fixSceneRect(size);
     }
-
-    fixSceneRect(event->size());
 }

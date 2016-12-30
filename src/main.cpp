@@ -47,7 +47,7 @@ int main(int argc, char* argv[]) {
 
     QMainWindow window;
     window.setWindowTitle("popup_ScrapDesigner");
-    window.setFixedSize(600, 400);
+    window.resize(600, 400);
 
     QWidget* central = new QWidget(&window);
     window.setCentralWidget(central);
