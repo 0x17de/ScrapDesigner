@@ -8,9 +8,7 @@
 GraphicsScene::GraphicsScene(QObject* parent, GateHandleMap& gateHandles)
     : QGraphicsScene(parent)
     , gateHandles_{gateHandles}
-{
-    setSceneRect(QRectF(0, 0, 10, 10));
-}
+{ }
 
 void GraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent* event) {
     QGraphicsScene::mousePressEvent(event);
@@ -22,10 +20,14 @@ void GraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent* event) {
                 if (!selection_) {
                     selection_ = this->addRect(rect);
                 } else {
+                    QRectF oldRect = selection_->rect();
                     selection_->setRect(rect);
+                    invalidate(oldRect);
                 }
             });
         addItem(gate);
+
+        emit newGate(gate);
     }
 }
 

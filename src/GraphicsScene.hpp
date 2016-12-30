@@ -19,6 +19,10 @@ public:
 
 public Q_SLOTS:
     void selectedGateTool(const QString& name);
+
+signals:
+    void newGate(GraphicsGate* gate);
+    void newBoundingRect(const QRectF& rect);
 };
 
 

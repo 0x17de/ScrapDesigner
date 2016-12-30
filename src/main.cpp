@@ -2,13 +2,13 @@
 #include <QMainWindow>
 #include <QToolBar>
 #include <QVBoxLayout>
-#include <QGraphicsView>
 #include <QActionGroup>
 #include <QAction>
 #include <QString>
 #include <QGraphicsSvgItem>
 
 #include "GateHandles.hpp"
+#include "GraphicsView.hpp"
 #include "GraphicsScene.hpp"
 #include "GraphicsGate.hpp"
 
@@ -66,7 +66,7 @@ int main(int argc, char* argv[]) {
     gateHandles["not"].action->setChecked(true);
 
     QVBoxLayout* vbox = new QVBoxLayout(central);
-    QGraphicsView* view = new QGraphicsView(scene, central);
+    GraphicsView* view = new GraphicsView(scene, central);
     vbox->addWidget(view);
 
     central->setLayout(vbox);
