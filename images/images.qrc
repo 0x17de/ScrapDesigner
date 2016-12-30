@@ -1,0 +1,11 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource prefix="/images">
+           <file>gates/AND_ANSI.svg</file>
+           <file>gates/NAND_ANSI.svg</file>
+           <file>gates/NOR_ANSI.svg</file>
+           <file>gates/NOT_ANSI.svg</file>
+           <file>gates/OR_ANSI.svg</file>
+           <file>gates/XNOR_ANSI.svg</file>
+           <file>gates/XOR_ANSI.svg</file>
+</qresource>
+</RCC>
