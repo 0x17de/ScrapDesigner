@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.3)
+cmake_minimum_required(VERSION 3.0)
 project(ScrapDesigner)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -17,7 +17,7 @@ set(SOURCES
 qt5_add_resources(IMAGES images/images.qrc)
 
 
-add_executable(ScrapDesigner "${SOURCES}" "${IMAGES}")
+add_executable(ScrapDesigner ${SOURCES} ${IMAGES})
 target_link_libraries(ScrapDesigner Qt5::Svg Qt5::Widgets)
 set_target_properties(ScrapDesigner PROPERTIES COMPILE_FLAGS "-std=c++11 -pedantic -Wall")
 
