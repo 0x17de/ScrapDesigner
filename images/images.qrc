@@ -7,5 +7,6 @@
            <file>gates/OR_ANSI.svg</file>
            <file>gates/XNOR_ANSI.svg</file>
            <file>gates/XOR_ANSI.svg</file>
+	   <file>Octagon_delete.svg</file>
 </qresource>
 </RCC>

@@ -12,6 +12,7 @@ set(SOURCES
     src/GraphicsView.cpp src/GraphicsView.hpp
     src/GraphicsScene.cpp src/GraphicsScene.hpp
     src/GraphicsGate.cpp src/GraphicsGate.hpp
+    src/GraphicsSvgButton.cpp src/GraphicsSvgButton.hpp
 )
 
 qt5_add_resources(IMAGES images/images.qrc)

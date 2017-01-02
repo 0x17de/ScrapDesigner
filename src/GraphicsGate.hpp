@@ -2,6 +2,7 @@
 #define GRAPHICSGATE_H
 
 #include <QGraphicsSvgItem>
+#include <QVariant>
 
 
 class GraphicsGate : public QGraphicsSvgItem {
@@ -9,10 +10,12 @@ class GraphicsGate : public QGraphicsSvgItem {
 
 public:
     explicit GraphicsGate(const QString& path, QGraphicsItem* parent);
-    virtual void mousePressEvent(QGraphicsSceneMouseEvent* event) override;
+
+protected:
+    QVariant itemChange(GraphicsItemChange change, const QVariant &value) override;
 
 signals:
-    void selected(GraphicsGate* gate);
+    void gateMoved(const QPointF& newPosition);
 };
 
 

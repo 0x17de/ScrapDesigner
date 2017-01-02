@@ -17,6 +17,7 @@ GraphicsView::GraphicsView(GraphicsScene* scene, QWidget* parent)
             this->fixSceneRect(size*2);
         });
     setSceneRect(frameRect() + QMarginsF(100, 100, 100, 100));
+    setMouseTracking(true);
 }
 
 void GraphicsView::fixSceneRect(const QSizeF& size) {
