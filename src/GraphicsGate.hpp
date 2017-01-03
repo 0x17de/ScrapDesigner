@@ -18,12 +18,14 @@ public:
     explicit GraphicsGate(const QString& path, QGraphicsItem* parent);
     ~GraphicsGate();
     void connectTo(GraphicsGate* other);
+    void disconnectOther(GraphicsGate* other);
 
 protected:
     QVariant itemChange(GraphicsItemChange change, const QVariant &value) override;
     void updateConnections();
 
 public Q_SLOTS:
+    void onOtherMoved(const QPointF& location);
     void onOtherDestroyed(QObject* other);
 
 signals:

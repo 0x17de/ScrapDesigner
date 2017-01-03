@@ -14,7 +14,7 @@ GraphicsGate::GraphicsGate(const QString& path, QGraphicsItem* parent)
 GraphicsGate::~GraphicsGate() {
     for (auto t : connections) {
         GraphicsGate* gate = std::get<1>(t);
-        QObject::disconnect(gate, &QObject::destroyed, this, &GraphicsGate::onOtherDestroyed);
+        disconnectOther(gate);
     }
     connections.clear();
 }
@@ -58,14 +58,21 @@ void GraphicsGate::onOtherDestroyed(QObject* other) {
     }
 }
 
+void GraphicsGate::onOtherMoved(const QPointF& other) {
+    updateConnections();
+}
+
+void GraphicsGate::disconnectOther(GraphicsGate* other) {
+    disconnect(other, &GraphicsGate::gateMoved, this, &GraphicsGate::onOtherMoved);
+    disconnect(other, &QObject::destroyed, this, &GraphicsGate::onOtherDestroyed);
+}
+
 void GraphicsGate::connectTo(GraphicsGate* other) {
     QGraphicsLineItem* line = new QGraphicsLineItem(QLineF(boundingRect().center()+QPoint(44, 0), QPointF()), this);
 
     connections.append(std::make_tuple(line, other));
-    QObject::connect(other, &GraphicsGate::gateMoved, [this](const QPointF&) {
-            updateConnections();
-        });
-    QObject::connect(other, &QObject::destroyed, this, &GraphicsGate::onOtherDestroyed);
+    connect(other, &GraphicsGate::gateMoved, this, &GraphicsGate::onOtherMoved);
+    connect(other, &QObject::destroyed, this, &GraphicsGate::onOtherDestroyed);
 
     updateConnections();
 }
