@@ -1,8 +1,6 @@
 #ifndef GATEHANDLES_H
 #define GATEHANDLES_H
 
-#include <QString>
-
 
 class GraphicsGate;
 class QGraphicsItem;
@@ -16,6 +14,5 @@ struct GateHandles {
                 const QString& imagePath);
     GraphicsGate* spawn(QGraphicsItem* panel, const QPointF& pos = {0, 0});
 };
-using GateHandleMap = QHash<QString, GateHandles>;
 
 #endif
