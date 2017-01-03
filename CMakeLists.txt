@@ -8,6 +8,7 @@ find_package(Qt5 COMPONENTS Svg Widgets)
 
 set(SOURCES
 	src/main.cpp
+    src/GateHandleMap.hpp
     src/GateHandles.cpp src/GateHandles.hpp
     src/GraphicsView.cpp src/GraphicsView.hpp
     src/GraphicsScene.cpp src/GraphicsScene.hpp
