@@ -5,7 +5,7 @@
 #include <QString>
 
 
-class GateHandles;
+struct GateHandles;
 using GateHandleMap = QHash<QString, GateHandles>;
 
 #endif
